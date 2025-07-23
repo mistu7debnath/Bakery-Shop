@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Sweet Treats Bakery</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    nav {
+      background-color: #ff6f61;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .links {
+      display: flex;
+      gap: 1rem;
+    }
+    nav .links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav .links a:hover {
+      text-decoration: underline;
+    }
+    nav .icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    #search-result {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      color: red;
+    }
+    .cart-section {
+      margin: 20px;
+    }
+    .cart-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .cart-section button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #ff6f61;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sweet Treats Bakery</h1>
+  </header>
+
+  <nav>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Our Products</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="signin.html">Sign In</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h2>Delicious Treats Made Fresh Daily</h2>
+    <p>Visit us for cakes, pastries, and more!</p>
+  </section>
+
+  <section class="content">
+    <h2>Welcome to Sweet Treats</h2>
+    <p>We offer a variety of fresh and delightful baked goods made with love.</p>
+    <div id="search-result"></div>
+
+    <!-- Sample Add to Cart buttons -->
+    <button onclick="addToCart('Chocolate Cake', 500)">Add Chocolate Cake ₹500</button>
+    <button onclick="addToCart('Croissants', 150)">Add Croissants ₹150</button>
+    <button onclick="addToCart('Macarons', 200)">Add Macarons ₹200</button>
+    <button onclick="addToCart('Cupcakes', 250)">Add Cupcakes ₹250</button>
+    <button onclick="addToCart('Donuts', 350)">Add Donuts ₹350</button>
+    <button onclick="addToCart('Red Velvet', 550)">Add Red Velvet ₹550</button>
+    <button onclick="addToCart('Cookies', 150)">Add Cookies ₹150</button>
+    <button onclick="addToCart('Dual Forset Cake', 850)">Add Dual Forset Cake ₹850</button>
+    <button onclick="addToCart('kaju Kalti', 450)">Kaju Kalti ₹450</button>
+    <button onclick="addToCart('Pinata', 1550)">Add Pinata ₹1550</button>
+    <button onclick="addToCart('Cream Roll', 30)">Add Cream Roll ₹30</button>
+    <button onclick="addToCart('Chocolate Trifle', 80)">Add Chocolate Trifle ₹80</button>
+
+  </section>
+
+  <section class="cart-section">
+    <h2>Your Cart</h2>
+    <ul id="cart-list"></ul>
+    <h3>Total: ₹<span id="total-price">0</span></h3>
+    <button onclick="payNow()">Pay Now</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Sweet Treats Bakery. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      const list = document.getElementById("cart-list");
+      const totalSpan = document.getElementById("total-price");
+      list.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(product => {
+        const li = document.createElement("li");
+        li.textContent = `${product.item} - ₹${product.price}`;
+        list.appendChild(li);
+        total += product.price;
+      });
+
+      totalSpan.textContent = total;
+    }
+
+    function payNow() {
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      if (total === 0) {
+        alert("Cart is empty. Add items before paying!");
+        return;
+      }
+
+      const options = {
+        key: "rzp_test_YourKeyHere", // replace with your Razorpay Test Key
+        amount: total * 100, // in paise
+        currency: "INR",
+        name: "Sweet Treats Bakery",
+        description: "Bakery Purchase",
+        handler: function (response) {
+          alert("Payment successful! Razorpay Payment ID: " + response.razorpay_payment_id);
+          cart.length = 0;
+          updateCart();
+        },
+        prefill: {
+          name: "Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#ff6f61"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+
+   
+
+    function handleCurrencyClick() {
+      let message = "Food Items and Prices:\n";
+      for (const [item, details] of Object.entries(foodItems)) {
+        message += `${item}: ${details.price}\n`;
+      }
+      alert(message);
+    }
+
+    function handleCartClick() {
+      if (cart.length > 0) {
+        const names = cart.map(p => p.item).join(", ");
+        alert(`Your cart contains: ${names}`);
+      } else {
+        alert("Your cart is empty! Add some delicious treats!");
+      }
+    }
+  </script>
+  <script src="final bakery Website.js"></script>
+</body>
+</html>
