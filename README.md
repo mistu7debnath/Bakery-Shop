@@ -19,4 +19,4 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 
 - HTML – Page structure
 - CSS – Styling and responsive design
-- **JavaScript**
+- JavaScript – Cart logic & interactivity
