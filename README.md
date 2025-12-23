@@ -8,7 +8,7 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 
 - 🍰 Browse delicious bakery items like cakes, pastries, and sweets
 - 🛒 Add to Cart with live item count and total price
-- 📱 Responsive Design
+- 📱 Responsive Design (mobile & desktop)
 - 🎨 Custom-styled buttons and layout
 -  📖 View **recipes** for each product (ingredients & steps)
 
