@@ -23,5 +23,8 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 
 
 🙌**Acknowledgment**
-
 This project was created for learning and practice purposes to improve frontend and JavaScript skills.
+
+
+.🍪 **Thank you for visiting Sweet Treats Bakery!** 🍰
+Feel free to ⭐ star the repository if you like it.
