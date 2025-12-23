@@ -22,6 +22,19 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 - JavaScript – Cart logic & interactivity
 
 
+🍩
+
+🔮 Future Enhancements
+
+Online payment gateway integration
+
+User login & order history
+
+Search and filter products
+
+Admin panel for product management
+
+
 🙌**Acknowledgment**
 This project was created for learning and practice purposes to improve frontend and JavaScript skills.
 
