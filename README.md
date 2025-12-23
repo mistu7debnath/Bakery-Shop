@@ -18,5 +18,5 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 ## 🧰 Tech Stack
 
 - HTML – Page structure
-- **CSS**
+- CSS – Styling and responsive design
 - **JavaScript**
