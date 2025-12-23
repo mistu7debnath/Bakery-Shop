@@ -22,16 +22,12 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 - JavaScript – Cart logic & interactivity
 
 
-🍩
 
 🔮 Future Enhancements
 
 Online payment gateway integration
-
 User login & order history
-
 Search and filter products
-
 Admin panel for product management
 
 
