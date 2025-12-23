@@ -23,7 +23,7 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 
 
 
-🔮 Future Enhancements
+🔮 **Future Enhancements**
 
 Online payment gateway integration
 User login & order history
