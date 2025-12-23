@@ -20,4 +20,3 @@ Welcome to **Sweet Treats Bakery**, a beautiful and responsive e-commerce bakery
 - **HTML**
 - **CSS**
 - **JavaScript**
-- 
